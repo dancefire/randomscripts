@@ -1,7 +1,8 @@
 cidr2mask() {
   local i mask=""
-  local full_octets=$(($1/8))
-  local partial_octet=$(($1%8))
+  local cidr=$1
+  local full_octets=$((cidr/8))
+  local partial_octet=$((cidr%8))
 
   for ((i=0;i<4;i+=1)); do
     if [ $i -lt $full_octets ]; then
